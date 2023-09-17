@@ -12,17 +12,22 @@ app.get('/', (req, res) => {
 })
 app.post('/upload', upload.array('files', 12), function (req, res) {
     const files_array = req.files[0]
-    console.log(files_array)
-    res.send('file Uploaded')
+    // console.log(files_array) //to take one file
     sharp(files_array.path)
         .toFile('./Image/' + files_array.originalname, (err, info) => {
             if (err) {
                 console.error(err);
             } else {
-                console.log(info);
+                // console.log(info);  //info of writed file like its format,size etc.
+                console.log('./Image/' + files_array.originalname); //use karna hai model mey
                 fs.unlinkSync(files_array.path);
+                res.send({
+                    success: true,
+                    message: 'Image File Uploaded'
+                })
             }
         });
+
 });
 
 app.listen(process.env.PORT || 3000, () => {
