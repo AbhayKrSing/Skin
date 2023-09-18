@@ -34,15 +34,15 @@ app.post('/upload', upload.array('files', 12), function (req, res) {
                         success: true,
                         message: result
                     })
-                    fs.readdir('./Image', (err, files) => { //delete image
-                        if (err) throw err;
+                    // fs.readdir('./Image', (err, files) => { //delete image
+                    //     if (err) throw err;
 
-                        for (const file of files) {
-                            fs.unlink(path.join('./Image', file), (err) => {
-                                if (err) throw err;
-                            });
-                        }
-                    });
+                    //     for (const file of files) {
+                    //         fs.unlink(path.join('./Image', file), (err) => {
+                    //             if (err) throw err;
+                    //         });
+                    //     }
+                    // });
                 })
 
             }
