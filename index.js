@@ -50,6 +50,6 @@ app.post('/upload', upload.array('files', 12), function (req, res) {
 
 });
 
-app.listen(process.env.APP_PORT || 3000, () => {
+app.listen(process.env.APP_PORT, () => {
     console.log("server running")
 })
