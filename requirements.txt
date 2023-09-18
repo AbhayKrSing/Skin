@@ -1,0 +1,4 @@
+--upgrade
+tensorflow
+opencv-python
+numpy
