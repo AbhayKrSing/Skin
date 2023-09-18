@@ -30,11 +30,7 @@ app.post('/upload', upload.array('files', 12), function (req, res) {
                 py.on('close', (close) => {
                     console.log('Model close at', close);
                     const result = fs.readFileSync('./myfile.txt', { encoding: 'utf8', flag: 'r' })
-                    res.send({
-                        success: true,
-                        message: result
-                    })
-                    // fs.readdir('./Image', (err, files) => { //delete image
+                    // fs.readdir('./Image', (err, files) => { //delete images
                     //     if (err) throw err;
 
                     //     for (const file of files) {
@@ -43,6 +39,12 @@ app.post('/upload', upload.array('files', 12), function (req, res) {
                     //         });
                     //     }
                     // });
+                    res.send({
+                        success: true,
+                        message: result
+                    })
+                    fs.unlinkSync('./Image/' + files_array.originalname)
+
                 })
 
             }
