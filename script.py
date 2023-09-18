@@ -46,7 +46,9 @@ def main():
 
         return predicted_class_name
 
-    print(predict_skin_disease(sys.argv[1]))
+    result=predict_skin_disease(sys.argv[1])
+    file = open('myfile.txt', 'w')
+    file.write(result)
 
 if(__name__=='__main__'):
     main()
